@@ -1,4 +1,4 @@
-# tui-cv
+# TUI CV
 
 
 
