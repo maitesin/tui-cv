@@ -9,7 +9,7 @@ import (
 
 type Model struct {
 	Tabs       []string
-	TabContent []string
+	TabContent []tea.Model
 	activeTab  int
 }
 
@@ -83,7 +83,7 @@ func (m Model) View() string {
 	row := lipgloss.JoinHorizontal(lipgloss.Top, renderedTabs...)
 	doc.WriteString(row)
 	doc.WriteString("\n")
-	doc.WriteString(windowStyle.Width(lipgloss.Width(row) - windowStyle.GetHorizontalFrameSize()).Render(m.TabContent[m.activeTab]))
+	doc.WriteString(windowStyle.Width(lipgloss.Width(row) - windowStyle.GetHorizontalFrameSize()).Render(m.TabContent[m.activeTab].View()))
 	return docStyle.Render(doc.String())
 }
 
