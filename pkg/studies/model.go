@@ -1,4 +1,4 @@
-package personal
+package studies
 
 import (
 	"github.com/charmbracelet/bubbles/viewport"
@@ -7,25 +7,23 @@ import (
 	"github.com/charmbracelet/lipgloss"
 )
 
-const content = `# Information
+const content = `
+# Studies
 
-Name: Oscar Forner Martinez
+## University Jaume I (Spain)
 
-Date of Birth: 24/03/1988
+- 2010-2013 Bachelor of Engineering in Computer Science
+- 2006-2010 Associate Degree in Computer Science
 
-Nationality: Spanish
+## Courses from Linux Foundation
 
-# Languages
+- August 2019 LFS258: Kubernetes Fundamentals
+- April 2016 LFD331: Developing Linux Device Drivers
+- March 2016 LFD320: Linux Kernel Internals and Debugging
 
-English: Fluent
+## Courses from PluralSight
 
-Spanish: Native
-
-Catalan: Native
-
-# About me
-
-I am a Senior Software Engineer interested in Backend Development and Systems Programming.
+- https://app.pluralsight.com/profile/oscar-fornermartinez
 `
 
 type Model struct {
@@ -35,10 +33,11 @@ type Model struct {
 func NewModel() (*Model, error) {
 	const width = 71
 
-	vp := viewport.New(width, 24)
+	vp := viewport.New(width, 20)
 	vp.Style = lipgloss.NewStyle().
-		//BorderStyle(lipgloss.RoundedBorder()).
-		BorderForeground(lipgloss.Color("62"))
+		BorderStyle(lipgloss.RoundedBorder()).
+		BorderForeground(lipgloss.Color("62")).
+		PaddingRight(2)
 
 	renderer, err := glamour.NewTermRenderer(
 		glamour.WithAutoStyle(),
