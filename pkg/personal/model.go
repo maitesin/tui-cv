@@ -37,7 +37,6 @@ func NewModel() (*Model, error) {
 
 	vp := viewport.New(width, 24)
 	vp.Style = lipgloss.NewStyle().
-		//BorderStyle(lipgloss.RoundedBorder()).
 		BorderForeground(lipgloss.Color("62"))
 
 	renderer, err := glamour.NewTermRenderer(
