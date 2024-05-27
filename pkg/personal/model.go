@@ -35,7 +35,7 @@ type Model struct {
 func NewModel() (*Model, error) {
 	const width = 71
 
-	vp := viewport.New(width, 24)
+	vp := viewport.New(width, 22)
 	vp.Style = lipgloss.NewStyle().
 		BorderForeground(lipgloss.Color("62"))
 

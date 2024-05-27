@@ -15,9 +15,9 @@ const content = `
 
 # Courses from Linux Foundation
 
-- August 2019 LFS258: Kubernetes Fundamentals
-- April 2016 LFD331: Developing Linux Device Drivers
-- March 2016 LFD320: Linux Kernel Internals and Debugging
+- August 2019 - LFS258: Kubernetes Fundamentals
+- April  2016 - LFD331: Developing Linux Device Drivers
+- March  2016 - LFD320: Linux Kernel Internals and Debugging
 
 # Courses from PluralSight
 
@@ -31,7 +31,7 @@ type Model struct {
 func NewModel() (*Model, error) {
 	const width = 71
 
-	vp := viewport.New(width, 20)
+	vp := viewport.New(width, 22)
 	vp.Style = lipgloss.NewStyle().
 		BorderForeground(lipgloss.Color("62"))
 
