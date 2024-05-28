@@ -17,6 +17,7 @@ import (
 
 func main() {
 	tabsHeaders := []string{"Welcome", "Personal", "Studies", "Skills", "Experience", "Looking For"}
+
 	welcomeModel, err := welcome.NewModel()
 	if err != nil {
 		panic(err)
@@ -36,7 +37,13 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	tabContent := []tea.Model{welcomeModel, personalModel, studiesModel, skillsModel, experience.Model{}, looking_for.Model{}}
+
+	experienceModel, err := experience.NewModel()
+	if err != nil {
+		panic(err)
+	}
+
+	tabContent := []tea.Model{welcomeModel, personalModel, studiesModel, skillsModel, experienceModel, looking_for.Model{}}
 	if _, err := tea.NewProgram(tabs.Model{Tabs: tabsHeaders, TabContent: tabContent}, tea.WithAltScreen()).Run(); err != nil {
 		fmt.Println("Error running program:", err)
 		os.Exit(1)

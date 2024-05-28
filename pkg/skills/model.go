@@ -34,9 +34,9 @@ type Hard struct {
 }
 
 func newHard() (*Hard, error) {
-	const width = 35
+	const width = 36
 
-	vp := viewport.New(width, 22)
+	vp := viewport.New(width, 24)
 	vp.Style = lipgloss.NewStyle().
 		BorderForeground(lipgloss.Color("62"))
 
@@ -95,9 +95,9 @@ type Soft struct {
 }
 
 func newSoft() (*Soft, error) {
-	const width = 35
+	const width = 36
 
-	vp := viewport.New(width, 22)
+	vp := viewport.New(width, 24)
 	vp.Style = lipgloss.NewStyle().
 		BorderForeground(lipgloss.Color("62"))
 
