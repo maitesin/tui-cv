@@ -43,7 +43,12 @@ func main() {
 		panic(err)
 	}
 
-	tabContent := []tea.Model{welcomeModel, personalModel, studiesModel, skillsModel, experienceModel, looking_for.Model{}}
+	lookingForModel, err := looking_for.NewModel()
+	if err != nil {
+		panic(err)
+	}
+
+	tabContent := []tea.Model{welcomeModel, personalModel, studiesModel, skillsModel, experienceModel, lookingForModel}
 	if _, err := tea.NewProgram(tabs.Model{Tabs: tabsHeaders, TabContent: tabContent}, tea.WithAltScreen()).Run(); err != nil {
 		fmt.Println("Error running program:", err)
 		os.Exit(1)
