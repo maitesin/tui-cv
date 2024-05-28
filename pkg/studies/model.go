@@ -19,6 +19,12 @@ const content = `
 - April  2016 - LFD331: Developing Linux Device Drivers
 - March  2016 - LFD320: Linux Kernel Internals and Debugging
 
+# Courses from Pragmatic Studio
+
+- April 2023 - Phoenix LiveView Pro v0.20
+- March 2022 - Phoenix LiveView Pro v0.15
+- July 2021 - Developing with Elixir/OTP
+
 # Courses from PluralSight
 
 - https://app.pluralsight.com/profile/oscar-fornermartinez
