@@ -22,7 +22,7 @@ For a more exhaustive into my information, please have a look at my personal web
 * Phone: +34 617606012
 * Email: oscar.forner.martinez@gmail.com
 
-## Tips
+# Tips
 * Use the arrow keys (←|→) to navigate through the tabs.
 * Use the "q" key to exit.
 `
