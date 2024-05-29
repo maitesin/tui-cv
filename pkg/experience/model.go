@@ -11,7 +11,7 @@ const content = `
 # 2021 - 2024 Software Engineer at Sketch
 IC working with Go and Elixir deploying microservices in AWS 
 # 2020 - 2021 Lead Software Engineer at Paack
-Lead the BE Go team deploying multiple microservices in GCP
+Leading the BE Go team with multiple microservices in GCP
 # 2018 - 2020 Senior Software Engineer at GlobalSign
 Most senior member of the Go team deploying on-premise in FreeBSD
 # 2016 - 2018 Software Engineer at VCATechnolgy

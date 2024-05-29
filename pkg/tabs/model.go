@@ -1,16 +1,58 @@
 package tabs
 
 import (
+	"github.com/charmbracelet/bubbles/help"
+	"github.com/charmbracelet/bubbles/key"
 	"strings"
 
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 )
 
+type keyMap struct {
+	Left  key.Binding
+	Right key.Binding
+	Quit  key.Binding
+}
+
+func (k keyMap) FullHelp() [][]key.Binding {
+	return [][]key.Binding{k.ShortHelp()}
+}
+
+func (k keyMap) ShortHelp() []key.Binding {
+	return []key.Binding{k.Left, k.Right, k.Quit}
+}
+
+var keys = keyMap{
+	Left: key.NewBinding(
+		key.WithKeys("left", "h"),
+		key.WithHelp("←/h", "move left"),
+	),
+	Right: key.NewBinding(
+		key.WithKeys("right", "l"),
+		key.WithHelp("→/l", "move right"),
+	),
+	Quit: key.NewBinding(
+		key.WithKeys("q", "esc", "ctrl+c"),
+		key.WithHelp("q", "quit"),
+	),
+}
+
 type Model struct {
 	Tabs       []string
 	TabContent []tea.Model
+	Help       help.Model
+	keys       keyMap
 	activeTab  int
+}
+
+func NewModel(tabs []string, tabContent []tea.Model) Model {
+	return Model{
+		Tabs:       tabs,
+		TabContent: tabContent,
+		Help:       help.New(),
+		keys:       keys,
+	}
 }
 
 func (m Model) Init() tea.Cmd {
@@ -20,13 +62,13 @@ func (m Model) Init() tea.Cmd {
 func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	switch msg := msg.(type) {
 	case tea.KeyMsg:
-		switch keypress := msg.String(); keypress {
-		case "ctrl+c", "q":
+		switch {
+		case key.Matches(msg, m.keys.Quit):
 			return m, tea.Quit
-		case "right", "l", "n", "tab":
+		case key.Matches(msg, m.keys.Right):
 			m.activeTab = min(m.activeTab+1, len(m.Tabs)-1)
 			return m, nil
-		case "left", "h", "p", "shift+tab":
+		case key.Matches(msg, m.keys.Left):
 			m.activeTab = max(m.activeTab-1, 0)
 			return m, nil
 		}
@@ -84,6 +126,10 @@ func (m Model) View() string {
 	doc.WriteString(row)
 	doc.WriteString("\n")
 	doc.WriteString(windowStyle.Width(lipgloss.Width(row) - windowStyle.GetHorizontalFrameSize()).Render(m.TabContent[m.activeTab].View()))
+	doc.WriteString("\n")
+	doc.WriteString("\n")
+	doc.WriteString(m.Help.View(m.keys))
+
 	return docStyle.Render(doc.String())
 }
 

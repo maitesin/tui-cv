@@ -23,7 +23,7 @@ const content = `
 
 - April 2023 - Phoenix LiveView Pro v0.20
 - March 2022 - Phoenix LiveView Pro v0.15
-- July 2021 - Developing with Elixir/OTP
+- July  2021 - Developing with Elixir/OTP
 
 # Courses from PluralSight
 
