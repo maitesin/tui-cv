@@ -1,5 +1,11 @@
 # TUI CV
 
+## Run it
+
+```
+docker run -it --rm maitesin/resume
+```
+
 ## Mandatory screenshot ;)
 
 ![Screenshot](https://raw.githubusercontent.com/maitesin/tui-cv/master/screenshot.png)
